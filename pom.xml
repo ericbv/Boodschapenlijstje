@@ -4,7 +4,7 @@
 
 	<groupId>ECB-Projects</groupId>
 	<artifactId>Boodschappenlijstje</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-DEV</version>
 	<packaging>jar</packaging>
 
 	<name>Boodschappenlijstje</name>
