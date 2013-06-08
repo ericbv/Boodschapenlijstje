@@ -47,7 +47,14 @@ public class WinkelResource {
 				Naam));
 		return dao.findWinkelByName(Naam);
 	}
-	
+	@GET
+	@Timed
+	@Path("/get/id")
+	public int getId(@Auth Persoon user) {
+		logger.info(String.format(
+				"%s has requested new ID", user.getName()));
+		return dao.GetHighestId()+1;
+	}
 	@GET
 	@Timed
 	@Path("/get/all")
@@ -81,7 +88,7 @@ public class WinkelResource {
 	@Path("/delete")
 	public void delete(@Auth Persoon user,@QueryParam("name") String Naam) {
 		if (user instanceof Beheerder) {
-			//TODO insert remove user code here!
+			
 		} else {
 
 			throw new WebApplicationException(Response.Status.UNAUTHORIZED);
@@ -104,7 +111,7 @@ public class WinkelResource {
 	@Timed
 	@Path("/createbase")
 	public int createbase() {
-		dao.createWorkersTable();
+		dao.createWinkelsTable();
 		throw new WebApplicationException(Response.Status.CREATED);
 	}
 }
